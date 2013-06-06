@@ -70,7 +70,7 @@ A BookJSON example of a book chapter:
 				},
 				{
 					"type": "paragraph",
-					"content": "This is another paragraph with a footnote.>footnote<"
+					"content": "This is another paragraph with a footnote.<footnote>"
 					"footnote": [
 						{
 							"content": [
@@ -134,11 +134,11 @@ A BookJSON example of a book chapter:
 					"url": "path/to/my/visualization/files.js",
 					"img": [
 						{
-							"type": "high res",
+							"info": "high res",
 							"url": "path/to/my/image/file.png"
 						},
 						{
-							"type": "svg",
+							"info": "svg",
 							"url": "path/to/my/image/vector.svg"
 						}
 					],
