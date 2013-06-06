@@ -134,7 +134,12 @@ A BookJSON example of a book chapter:
 					"url": "path/to/my/visualization/files.js",
 					"img": [
 						{
+							"type": "high res",
 							"url": "path/to/my/image/file.png"
+						},
+						{
+							"type": "svg",
+							"url": "path/to/my/image/vector.svg"
 						}
 					],
 					"caption": "This is a graph/image caption. Notice that the type has an asterisk: in <a href=\"http://example.com\">LaTeX<, this would refer to an un-numbered graph."
