@@ -30,6 +30,142 @@ With this is mind, this is my attempt at a document grammar.
 
 
 
+---
+
+### Specification
 
 
+BookJSON is a format for encoding document data structures. BookJSON supports the following types: chapter, section, paragraph, equation, figure, quote, ordered list, unordered list, and graph. Types are allowed to nest, such that a chapter may contain multiple sections with each sections containing multiple paragraphs and so on and so forth. 
+
+In JSON terms, a complete BookJSON data structure is always an object. An object is a collection of key : value pairs. The key is always a string, and values may be either a string, number, object, array, or a literal ('true', 'false', 'null'). 
+
+
+#### Examples
+
+A BookJSON example of a book chapter:
+
+
+```js
+{
+	"title": "My First Chapter",
+	"type": "chapter",
+	"id": "chapter-1",
+	"author": [
+		{
+			"name": "Firstname Lastname",
+			"affiliation": "Author Affiliation"
+		}
+	],
+	"abstract": "This is the chapter abstract.",
+	"content": [
+		{
+			"title": "Introduction",
+			"type": "section",
+			"id": "section-1",
+			"desc": "An internal reference.",
+			"content": [
+				{
+					"type": "paragraph",
+					"content": "This is a paragraph. Here is a sentence with a citation &lt;cite&gt;AuthorYear&lt;/cite&gt;"
+				},
+				{
+					"type": "paragraph",
+					"content": "This is another paragraph with a footnote.&gt;footnote&lt;"
+					"footnote": [
+						{
+							"content": [
+								{
+									"type": "equation",
+									"id": "equation-1",
+									"content": "@frac{a}{b}",
+									"aside": "An aside explaining this equation with example code: &lt;code&gt;var x = a/b;&lt;/code&gt;." 
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "figure",
+					"id": "figure-1",
+					"class": "full-width",
+					"title": "Figure 1",
+					"img": [
+						{
+							"url": "this/is/the/path/to/the/figure.png"
+						}
+					],
+					"desc": "An internal note description about the figure.",
+					"caption": "The figure caption with an endnote.&lt;endnote&gt;",
+					"endnote": [
+						{
+							"content": [
+								{
+									"type": "paragraph",
+									"content": "Endnote text with additional &lt;span class="term"&gt;markup&lt;/span&gt;."
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "quote",
+					"content": "This is a &lt;index&gt;quote&lt;/index&gt; with a term added to the index."
+				},
+				{
+					"type": "ordered list",
+					"content": [
+						{
+							"item": "Item 1."
+						},
+						{
+							"item": "Item 2 which refers to &lt;a href="#figure-1"&gt;Figure 1&lt;/a&gt;"
+						},
+						{
+							"item": "Item 3 with inline math: **@int_{-@infty}^{+@infty} e^{xy} dx**."
+						}
+					]
+				},
+				{
+					"type": "graph*",
+					"id": "graph-1",
+					"class": "graphs",
+					"title": "Graph 1",
+					"desc": "An interactive visualization with an image fallback.",
+					"url": "path/to/my/visualization/files.js",
+					"img": [
+						{
+							"url": "path/to/my/image/file.png"
+						}
+					],
+					"caption": "This is a graph/image caption. Notice that the type has an asterisk: in &lt;a href="http://example.com"&gt;LaTeX&lt;, this would refer to an un-numbered graph."
+				}
+			]
+		}
+	]
+}
+
+```
+
+
+
+
+#### Types
+
+Possible types.
+
+
+
+#### Fields
+
+Possible fields.
+
+
+#### Classes
+
+Possible defined classes. Others can include unsupported classes.
+
+
+#### LaTeX Commands
+
+Addressing equations.
 

@@ -1,0 +1,16 @@
+{
+	"name": "bookjson",
+	"version": "0.0.1",
+	"description": "A document data format specification.",
+	"keywords": [
+		"json"
+	],
+	"author": {
+		"name": "Kristofer Gryte",
+		"url": "http://www.kgryte.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	}
+}
