@@ -101,7 +101,7 @@ A BookJSON example of a book chapter:
 							"content": [
 								{
 									"type": "paragraph",
-									"content": "Endnote text with additional <span class="term">markup</span>."
+									"content": "Endnote text with additional <span class=\"term\">markup</span>."
 								}
 							]
 						}
@@ -118,7 +118,7 @@ A BookJSON example of a book chapter:
 							"item": "Item 1."
 						},
 						{
-							"item": "Item 2 which refers to <a href="#figure-1">Figure 1</a>"
+							"item": "Item 2 which refers to <a href=\"#figure-1\">Figure 1</a>"
 						},
 						{
 							"item": "Item 3 with inline math: **@int_{-@infty}^{+@infty} e^{xy} dx**."
@@ -137,7 +137,7 @@ A BookJSON example of a book chapter:
 							"url": "path/to/my/image/file.png"
 						}
 					],
-					"caption": "This is a graph/image caption. Notice that the type has an asterisk: in <a href="http://example.com">LaTeX<, this would refer to an un-numbered graph."
+					"caption": "This is a graph/image caption. Notice that the type has an asterisk: in <a href=\"http://example.com\">LaTeX<, this would refer to an un-numbered graph."
 				}
 			]
 		}
