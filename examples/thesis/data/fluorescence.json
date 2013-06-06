@@ -1,0 +1,354 @@
+{
+	"title": "Photophysics and Photochemistry",
+	"type": "chapter",
+	"id": "chap-photophysics-and-photochemistry",
+	"author": [
+		{"name": "Kristofer Gryte"}
+	],
+	"abstract": "Single-molecule fluorescence has emerged as a potentially powerful technique to probe biochemical and cellular processes. By monitoring fluorescence intensity fluctuations over time, we are able to deduce reaction pathways, link structure to function, and reveal the stochastic nature of molecular processes. Here, we introduce photophysics and photochemistry within the context of single-molecule spectroscopy. We begin with the theory of photon absorption and emission and then proceed to outline the various competing pathways to fluorescence. We discuss triplet states and intermolecular quenching in relation to fluorophore blinking, and we describe general photoswitching mechanisms. Finally, we present the theory of F\"orster resonance energy transfer (FRET) and motivate its application in studying single-molecule reaction dynamics. This chapter provides a solid foundation to understand and interpret single-molecule fluorescence data, and we expect the chapter will prove useful in guiding both experimental and analysis method design.",
+	"content": [
+		{
+			"title": "Introduction",
+			"type": "section",
+			"id": "sec-photophysics-intro",
+			"desc": "",
+			"content":  [
+				{
+					"type": "paragraph",
+					"content": "Molecules which are capable of absorbing and emitting photons with wavelengths in the visible spectrum have become important elements in our quest to probe biochemical and cellular processes. Each application presents its own demands and challenges, and determining the appropriate molecular probes has become paramount. Fluorophores, i.e., chemical compounds that can absorb a photon of a specific wavelength and then re-emit a photon at a different but equally specific wavelength, each possess their own unique photophysical and photochemical characteristics. Some are bigger; others are smaller. Some are water soluble, and others not. Some are incredibly photostable in the presence of oxygen, while others destruct. Each fluorophore has its own mix of spectroscopic parameters, redox properties, and other qualities. While the combinations are endless, finding a fluorophore with the particular properties desired is challenging and demands significant characterization, optimization, and experimental controls."
+				}, 
+				{
+					"type": "paragraph",
+					"content": "In single-molecule spectroscopy, we are unable to optically resolve native biological molecules at the single-molecule level due to their small size. To permit fluorescence detection, we must first attach a fluorescent probe to the biomolecule. Ideally, probes must be capable of being linked to the biomolecule such that attachment introduces minimal perturbations and does not affect biological activity. For many applications, the probe should emit a high number of photons and be photostable (i.e., exhibit constant fluorescence intensity and be slow to photobleach) for the entire measurement duration. For other applications, such as single-molecule-based super-resolution imaging, variability in photon emission is desired, and, more specifically, a variability capable of being finely tuned <cite>Uphoff2010, Uphoff2011</cite>."
+				}, 
+				{
+					"type": "paragraph",
+					"content": "So what insight can a fluorophore attached to a biomolecule provide?"
+				},
+				{
+					"type": "ordered list",
+					"content": [
+						{
+							"item": "The location of a biomolecule. By monitoring the diffusional and directional movements of molecular motors, we can follow such biomolecules with nanometer precision using sophisticated single-molecule particle tracking algorithms. By introducing multiple fluorophore colors, we can colocalize and distinguish multiple biomolecules within the same complex and observe biomolecular interaction <cite>Hohlbein2010</cite>."
+						}, 
+						{
+							"item": "Information about the local environment. Changes in fluorescence lifetimes and intensities can report on local environment changes, such as protein proximity and quencher interaction <cite>LeReste2012</cite>."
+						}, 
+						{
+							"item": "Rotational dynamics. We can use polarized excitation and emission to monitor a biomolecule's orientational changes <cite>Rosenberg2005</cite>."
+						}, 
+						{
+							"item": "Conformational dynamics. Dipole-dipole interactions between adjacent fluorophores enable us to detect small distance changes, which can report on intramolecular structural changes and on intermolecular interactions between multiple molecules <cite>Cordes2010</cite>."
+						}
+					]
+				},
+				{
+					"type": "paragraph",
+					"content": "The growth of single-molecule fluorescence spectroscopy as an experimental technique underscores the need to understand the fundamental processes of fluorescence. Building a solid understanding will inform us as to the method's advantages and limitations and help guide our experimental design choices. Importantly, a principle aim in reviewing the theory of molecular photophysics is to help us develop an intuition as to the interpretation of single-molecule fluorescence data. As we will see in the chapters that follow, interpreting single-molecule fluorescence data is neither immediate nor straightforward."
+				}
+			]
+		}, 
+		{
+			"title": "Photon Absorption and Emission",
+			"id": "sec-photophysics-absorption-and-emission",
+			"type": "section",
+			"desc": "",
+			"content": [
+				{
+					"type": "paragraph",
+					"content": "We can describe a molecule's photophysical and photochemical state in terms of its <span class=\"term\">electronic state</span>. We can in turn characterize an electronic state by an electronic configuration, which we may further describe in terms of a molecule's <span class=\"term\">highest-energy occupied molecular orbital</span> (HOMO)  and <span class=\"term\">lowest-energy unoccupied molecular orbital</span> (LUMO) and in terms of a characteristic spin configuration, either singlet (anti-parallel electron spins, **@uparrow @downarrow**) or triplet (parallel electron spins, **@uparrow @uparrow**) <cite>Turro2008</cite>. In studying fluorescence, we are not concerned with the absolute energy of a particular electronic state, but with the energy difference between molecular electronic states. We refer to this difference as the <span class=\"term\">energy gap</span>"
+				},
+				{
+					"type": "equation",
+					"id": "eqn-energy-gap",
+					"content": "@Delta E = @vert E_j - E_i @vert @quad @text{The energy gap between **E_j** and **E_i**}"
+				}, 
+				{
+					"type": "paragraph",
+					"content": "where **E_j** and **E_i** are the absolute energies for states **j** and **i**, respectively."
+				}, 
+				{
+					"type": "paragraph",
+					"content": "Now consider that a photon has energy"
+				},
+				{
+					"type": "equation",
+					"id": "eqn-planks-relation",
+					"content": "E_{photon} = h@nu "
+				},
+				{
+					"type": "paragraph",
+					"content": "where **h** is Planck's constant (**1.58 @times 10^{-37}@ @text{kcal**@cdot**sec}**) and **@nu** is the frequency of the photon (typically in units of **@text{s}^{-1} = @text{Hz}**). Molecular photon absorption transforms the photon energy, **h@nu**, into an electronic excitation energy such that"
+				}, 
+				{
+					"type": "equation*",
+					"content": "h@u + @vert D @rangle @rightarrow @vert D^*@rangle"
+				}, 
+				{
+					"type": "paragraph",
+					"content": "where, for a molecule **D**, **@vert D @rangle** is the ground electronic state and **@vert D^* @rangle** is an electronically excited state. The photon performs work by using its energy to either change electron orbital structure, vibrate nuclei, or precess molecular spins. With the absorbed photon energy, a molecule may make or break chemical bonds, or it may change a molecule's electronic configuration and hence the electronic distribution about the nuclei."
+				},
+				{
+					"type": "paragraph",
+					"content": "We refer to transitions between states as <span class=\"term\">photophysical processes</span>. To model these processes, we turn to quantum mechanics. According to the postulates of quantum mechanics <cite>McQuarrie2007, Griffiths2004</cite>, we may compute the value of any observable property P**_i** of a state **i**, if the state's wave function **@Psi_i** and the mathematical operator **@hat{P}_i** corresponding to the observable property are known.<footnote> For example, to measure the energy we use the Hamiltonian operator **@hat{H}** and its eigenvalue equation",
+					"footnote": [
+						{
+							"content": [
+								{
+									"type": "paragraph",
+									"content": "The only observed measurement values possible must be eigenvalues that satisfy the eigenvalue equation"
+								},
+								{
+									"type": "equation",
+									"id": "eqn-schroedinger-equation",
+									"content": "@hat{P}@Psi = P@Psi"
+								},
+								{
+									"type": "paragraph",
+									"content": "Hence, for every measurable property P of a molecular system, a mathematical function **@hat{P}** exists that operates on the eigenfunction **@Psi** to produce an eigenvalue **P** that corresponds to an experimental measurement of that system property <cite>McQuarrie2007, Griffiths2004</cite>. Equation <a href=\"#eqn-schroedinger-equation\"></a> refers to a single measurement of a single molecule in an experiment. For a large number of experiments, we can calculate the property's average (or <span class=\"term\">expectation</span>) value by mathematical integration"
+								},
+								{
+									"type": "equation",
+									"id": "eqn-schroedinger-expectation",
+									"content": "@underset{@text{Expectation Value}}{@underbrace{@langle P @rangle}} = @int @Psi^* @hat{P} @Psi d@tau = @underset{@text{Matrix Element}}{@underbrace{@langle @Psi @vert @hat{P} @vert @Psi @rangle}}"
+								},
+								{
+									"type": "paragraph",
+									"content": "where **@langle @Psi @vert @cdot @vert @Psi @rangle** corresponds to the alternative notation to wave mechanics called <span class=\"term\">bra-ket notation</span>. In words, we extract information about a molecular system, i.e., the expectation value of an experimental measurement, by \"acting\" on a normalized wave function **@Psi** with an operator **@hat{P}** and by computing the matrix element."
+								}
+							]    
+						}
+					]
+				},
+				{
+					"type": "equation*",
+					"content": "@hat{H}@Psi = E @Psi"
+				},
+				{
+					"type": "paragraph",
+					"content": "and solve for **E**. But suppose we are interested in the transition rates between an initial state **@Psi_i** and a second state **@Psi_j**. If we know the wave functions **@Psi_i** and **@Psi_j**, the postulates of quantum mechanics allow us to calculate the transition rate constant **k**, i.e., the transition probability per unit time, for **@Psi_i @rightarrow @Psi_j** by computing the square of a matrix element that corresponds to the transition, if **@hat{P}_{i @rightarrow j}**, the operator for the interaction which triggers **@Psi_i @rightarrow @Psi_j**, is known."
+				},
+				{
+					"type": "equation*",
+					"content": "k_{i @rightarrow j} @sim @langle @Psi_j @vert @hat{P}_{i @rightarrow j} @vert @Psi_i @rangle^2"
+				},
+				{
+					"type": "paragraph",
+					"content": "where ``**@sim**'' indicates the omission of constants. Hence, for the transition **h@nu + @vert D @rangle @rightarrow @vert D^* @rangle**, **@hat{P}_{h@nu}** is the operator which represents the interaction of **D** electrons with a photon, and thus,"
+				},
+				{
+					"type": "equation*",
+					"content": "k_{0 @rightarrow 1} @sim @langle @Psi_1(D^*) @vert @hat{P}_{h@nu} @vert @Psi_0(D) @rangle^2"
+				},
+				{
+					"type": "paragraph",
+					"content": "The interaction represented by **@hat{P}_{h@nu}** causes wave function `mixing' <cite>Turro2008</cite>, where effective mixing of two waves only occurs upon <span class=\"term\">resonance</span> between **@Psi_0(D)** and **@Psi_1(D^*)**. For example, if we consider **h@nu + @vert D @rangle @rightarrow @vert D^* @rangle**, we can imagine that the photon carries the energy and required interaction needed to achieve resonance and to cause the electronic transition from **D** to **D^***. Expressed differently, the operator **@hat{P}_{h@nu}** transforms the wave function **@Psi_0(D)**; if the transformed **@Psi_0(D)** is sufficiently similar to **@Psi_1(D^*)**, a transition can occur."
+				},
+				{
+					"type": "paragraph",
+					"content": "Calculating molecular wave functions **@Psi_n** is not possible except for the simplest molecular systems. Instead, we rely on the <span class=\"term\">Born-Oppenheimer approximation</span>, which assumes that electron motion is much more rapid than nuclear vibration and that the distribution of low-mass, rapidly moving, negatively charged electrons instantaneously adjusts to the positive potential of relatively massive, slowly moving nuclei.<footnote> As a consequence, an electronic transition between orbitals occurs while nuclei are effectively stationary. Using the Born-Oppenheimer approximation, we can approximate **@Psi** in terms of three separate components: an electronic wave function, a vibrational wave function, and a spin wave function.",
+					"footnote": [
+						{
+							"content": [
+								{
+									"type": "paragraph",
+									"content": "Two notes: (1) a proton's mass is **@sim 10^3** times greater than electron's mass; and (2) an electron transition (or jump) is two orders of magnitude faster than nuclear vibrations: **10^{-15}**-**10^{-16}@ @text{versus}@ 10^{-13}**-**10^{-14}**."
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "equation",
+					"id": "eqn-born-oppenheimer-approximation",
+					"content": "@underset{@text{``True'' molecular wave function}}{@underbrace{@Psi}} @approx @underset{@text{electronic, vibrational, spin}}{@underbrace{@Psi_0@cdot@chi@cdot@mathbf{S}}}"
+				},
+				{
+					"type": "paragraph",
+					"content": "The electronic wave function **@Psi_0** is a zero-order approximation for electronic orbital motion and position about a stationary and positively charged nucleus. We can further approximate **@Psi_0** by neglecting electron-electron interactions. If we calculate a solution to the wave function **@phi_i** for a one-electron molecule, we can then approximate the molecular wave function as a product of multiple overlapping one-electron orbitals"
+				},
+				{
+					"type": "equation",
+					"id": "eqn:electronic-wave-func-approx",
+					"content": "@Psi_0 @approx @phi_1 @phi_2 @cdots @phi_{m}@ ; @quad i = 1,2,@ldots, m"
+				},
+				{
+					"type": "paragraph",
+					"content": "Along with these approximations, we can subsequently approximate the interaction represented by **@hat{P}_{h@nu}** by only considering HOMO (**HO**) and LUMO (**LU**) molecular orbitals <cite>Wade2005</cite>"
+				},
+				{
+					"type": "equation*",
+					"content": "k_{0 @rightarrow 1} @sim @biggl@langle (@phi_{HO}(D^*)@phi_{LU}(D^*)) @cdot @chi(D^*) @cdot @mathbf{S}(D^*) @biggl@lvert @hat{P}_{h@nu} @biggr@rvert (@phi_{HO}(D)@phi_{HO}(D))@cdot @chi(D) @cdot @mathbf{S}(D) @biggr@rangle^2"
+				},
+				{
+					"type": "paragraph",
+					"content": "The HOMO and LUMO molecular orbital approximation provides a sufficient starting point for most photochemical reactions <cite>Turro2008</cite>."
+				},
+				{
+					"type": "paragraph",
+					"content": "Provided we have selected a good zero-order approximation **@Psi_0**, we can introduce minor refinements to our approximation. For instance, we may ``mix'' one-electron wave functions, allowing electron-electron interactions, such as electron-electron repulsion. If the mixing effect is small, i.e., we have a good **@Psi_0**, then we call such an effect a <span class=\"term\">perturbation</span>. The mathematical theory which uses such perturbations to better approximate the true system is called <span class\"term\">perturbation theory</span>."
+				},
+				{
+					"type": "paragraph",
+					"content": "Importantly, weak perturbations<footnote>, such as weak electronic, vibrational, or spin wave function ``distortions'', include electron interaction with electromagnetic fields, as well as HOMO-LUMO interaction between molecules, i.e., the interactions which lead to chemical reactions and energy transfer <cite>Turro2008</cite>. Hence, we can account for transitions of the type **h@nu + @vert D @rangle @rightarrow @vert D^* @rangle** by weak perturbations, and we can calculate the transition rate from one energy eigenstate to accessible eigenstates which are capable of resonance through the perturbation **P^@prime_{h@nu}** using <span class=\"term\">Fermi's golden rule</span>",
+					"footnote": [
+						{
+							"content": [
+								{
+									"type": "paragraph",
+									"content": "A weak perturbation is a perturbation which does not significantly alter the energies associated with **@Psi_0**."
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "equation",
+					"id": "eqn-fermis-goldern-rule",
+					"content": "k_{0 @rightarrow 1} = @frac{2@pi}{@hbar} @rho [@langle @Psi_1(D^*) @vert P^@prime_{h@nu} @vert @Psi_0(D) @rangle ]^2"
+				},
+				{
+					"type": "paragraph",
+					"content": "where **@rho** is the density of final states (number of states per unit energy) capable of effective mixing between **@Psi_0(D)** and **@Psi_1(D^*)** and **@hbar** is the reduced Planck constant (**= h/2@pi**). In Equation <a href=\"#eqn-fermis-golden-rule\"></a>, the perturbation relates to the transition dipole moment. As electrons interact with the electromagnetic field, they oscillate along the molecule's positive nuclear framework and distort the electron cloud. If the oscillation is large, i.e., the interaction generates a large transition dipole, the perturbation is strong, and the transition rate is fast."
+				},
+				{
+					"type": "paragraph",
+					"content": "For organic molecules, vibronic coupling, i.e., vibrational nuclear motion coupled to electron orbital motion, is the most important perturbation for mixing electronic wave functions <cite>Turro2008</cite>. Let us then denote the vibronic coupling operator **@hat{P}_{vib}** to represent the perturbation which vibrationally mixes the electronic wave functions **@psi_0(D)** and **@psi_1(D^*)**. When mixing sufficiently distorts **@psi_0(D)** to look like **@psi_1(D^*)**, an electronic transition can occur. We can address the density of states **@rho** to which the molecule can transition by considering the overlap integral **@langle @cdot @vert @cdot @rangle** of the vibrational wave functions **@chi_0(D)** and **@chi_1(D^*)**, i.e., the extent of similarity in nuclear configuration and vibrational momentum at the instant of an electronic transition. The square of the vibrational overlap **@langle @chi_1 @vert @chi_0 @rangle^2** is called the <span class=\"term\">Franck-Condon (FC) factor</span>."
+				},
+				{
+					"type": "equation*",
+					"content": "k_{0 @rightarrow 1} @sim @underset{@text{vibronic coupling}}{@underbrace{@langle @psi_1(D^*) @vert @hat{P}^@prime_{vib} @vert @psi_0(D) @rangle^2}}@ @cdot@ @underset{@text{FC factor}}{@underbrace{@langle @chi_1(D^*) @vert @chi_0(D) @rangle^2}}"
+				},
+				{
+					"type": "paragraph",
+					"content": "Accordingly, the <span class=\"term\">Franck-Condon principle</span> states that the most probable electronic state transitions occur when the initial vibrational state wave function **@chi_i** most closely resembles the final vibrational state wave function **@chi_f**. Figure <a href=\"#fig-franck-condon-principle\"></a> provides a visual representation of FC factors.<footnote>",
+					"footnote": [
+						{
+							"content": [
+								{
+									"type": "paragraph",
+									"content": "Note that we only show transitions which begin from the lowest vibrational level of the ground electronic state. The energy gap between vibrational states is approximately **0.1@text{eV}**. This energy is large compared to the thermal energy **k_BT @approx 0.025@ @text{eV}**, where **k_B** is the Boltzmann constant and **T = 296@ @text{K}** is room temperature in degrees Kelvin. We can describe the distribution of molecules over available vibrational levels by a <span class=\"term\">Boltzmann distribution</span> <cite>Sauer2011</cite>"
+								},
+								{
+									"type": "equation",
+									"id": "eqn-boltzmann-distr",
+									"content": "N_i @sim e^{-E_i / k_B T}"
+								},
+								{
+									"type": "paragraph",
+									"content": "where **N_i** is the number of molecules with energy **E_i**. We can calculate the fraction of molecules in the **i**th energy level"
+								},
+								{
+									"type": "equation",
+									"content": "f_i = @frac{N_i}{N} = @frac{e^{-E_i / k_B T}}{@sum_i e^{-E_i / k_B T}}"
+								},
+								{
+									"type": "paragraph",
+									"content": "where **@sum_i N_i = N**. For **T = 296@ @text{K}**, **f_i > 0.99**, meaning that nearly all molecules at room temperature are in the ground vibrational state."
+								}
+							]
+						}
+					]
+				},
+				{
+					"type": "figure",
+					"id": "fig-franck-condon-principle",
+					"class": "two-column half",
+					"title": "Franck-Condon Principle",
+					"img": [
+						{
+							"url": "img/franckCondonPrincipleAbsorption.png",
+							"title": "Photon Absorption",
+							"id": "fig-fc-principle-abs"
+						},
+						{
+							"url": "img/franckCondonPrincipleEmission.png",
+							"title": "Photon Emission",
+							"id": "fig-fc-principle-emission"
+						}
+					],
+					"desc": "Franck-Condon interpretation of Absorption / of Emission",
+					"caption": "Quantum Mechanical Representations of the Franck-Condon Principle for Photon Absorption and Photon Emission. (a) potential energy curves for initial and final electronic states. Transitions to excited electronic states predominantly begin from the lowest vibrational level. The probability of ending in a particular vibrational level of the final electronic state is proportional to the overlap integral between vibrational wave functions (shown in color). Here, we indicate the most probable transition with a thick black line. (b) similar to photon absorption in (a), photon emission also follows the Franck-Condon principle. Transitions to lower excited states predominantly begin from the lowest vibrational level of the excited electronic state. Excited electronic state internuclear separations frequently differ from the ground state due to nuclear adjustment to the excited state orbital configuration; the shift in potential energy minimum thus favors transitions to ground state vibrational levels greater than 0.  The vertical lines represent **n^{@prime@prime} @rightarrow n^@prime** and **n^{@prime} @rightarrow n^{@prime@prime}** vibronic transitions. We omit rotational states for clarity."
+				},
+				{
+					"type": "paragraph",
+					"content": "The Born-Oppenheimer approximation indicates that the nuclear configuration in the excited state **@vert D^* @rangle** is approximately the same as in the ground state **@vert D @rangle** at the instant of electronic transition. This explains why electronic transitions are vertical arrows in Figure <a href=\"#fig-franck-condon-principle\"></a>. Once an electron has transitioned, the nucleus experiences a new negative electronic force field which causes the nucleus to vibrate as it adopts a new nuclear geometry. The additional vibrational energy means zero-point transitions, i.e., direct transitions from the lowest ground vibronic state to the lowest vibrational level of an excited electronic state, do not typically occur. Instead, electronic transitions to excited states predominantly end at higher vibrational levels, and excited electronic state minima are located at increased internuclear separation <cite>McQuarrie2007</cite>."
+				},
+				{
+					"type": "paragraph",
+					"content": "Intramolecular <span class=\"term\">vibrational relaxation</span>, i.e., a non-radiative transition from a higher vibrational level to a lower vibrational level, occurs when the excess vibrational energy due to electronic transition transfers to nearby molecules. This form of relaxation, on the order of **10^{-11}**-**10^{-13}** seconds, is followed by a slower intermolecular vibrational relaxation, which occurs on the order of **10^{-10}**-**10^{-11}** seconds. In solution, solvent molecules surround the ground state molecule to create a solvation shell in which dipole moment interaction induces an ordered distribution of solvent molecules. The transition dipole moment of the vibrationally excited molecule affects the surrounding solvent via van der Waals (London dispersive) forces, hydrogen bond rearrangement, polarization changes, and short-range repulsion between molecular electronic clouds; these effects cause the solvent molecules to re-orient (termed <span class=\"term\">solvent relaxation</span>) within the solvent-solute environment and allow for thermal equilibration."
+				},
+				{
+					"type": "paragraph",
+					"content": "Solvent acceptance of the excess vibrational energy allows the excited molecule to further relax to reach the lowest vibrational level of the excited electronic state. Accordingly, intra- and intermolecular relaxation combine to reduce the energy separation between the ground and excited electronic states. As solvent polarity increases, this produces a correspondingly larger reduction in excited state electronic energy, while a decrease produces the opposite effect. The same relation is true for the excited molecule: polar and charged excited molecules exert a greater effect on the solvent than non-polar molecules. Hence, a molecule's polarity determines the sensitivity of the excited state to solvent effects."
+				},
+				{
+					"type": "paragraph",
+					"desc": "Beer-Lambert",
+					"content": "We can characterize a substance's propensity to undergo electronic transitions due to photon absorption based on two laws: Lambert's and Beer's Laws. <span class=\"term\">Lambert's Law</span> states that the proportion of photons absorbed by a medium is independent of the initial photon intensity **I_0**. <span class=\"term\">Beer's Law</span> states that the number of absorbed photons is proportional to the concentration of absorbing molecules in the photon path. Accordingly, we can combine both laws in a single equation called the <span class=\"term\">Beer-Lambert Law</span> <cite>Lakowicz2010</cite>"
+				},
+				{
+					"type": "equation",
+					"id": "eqn-beer-lambert-law",
+					"content": "@frac{I}{I_0} = 10^{-@varepsilon(@nu) C l}"
+				},
+				{
+					"type": "paragraph",
+					"content": "where **I** is the transmitted photon intensity, **l** is the optical path length (usually 1 cm), **C** is the sample concentration, and **@varepsilon(@nu)** (with units **@text{cm**^2**/mol} = @text{cm**^{-1}**/M}**) is the molar extinction coefficient as a function of photon energy **@nu**. The coefficient **@varepsilon** is a fundamental molecular property and is the quantity which characterizes a substance's ability to absorb photons of energy **@nu**."
+				},
+				{
+					"type": "paragraph",
+					"desc": "Photon Emission",
+					"content": "Once a molecule transitions to an excited electronic state, vibrational relaxation is one of many competing pathways. One pathway, <span class=\"term\">photon emission</span>, is essentially the reverse of photon absorption: radiative emission (also called <span class=\"term\">fluorescence</span>) between an excited electronic state and a ground electronic state (see Figure <a href=\"#fig-franck-condon-principle\"></a>(b) for a Franck-Condon principle interpretation). Once again, nuclei must adjust to the new (ground-state) electronic force field, causing excess vibrational energy. The excess energy dissipates, and the molecule vibrationally relaxes to the lowest energy level. Importantly, the energy gaps for the most likely electronic transitions from an excited state to a ground state are smaller than the energy gaps from a ground state to an excited state. We refer to the energy shift from higher energy photon absorption to lower energy photon emission as the <span class=\"term\">Stokes Shift</span>."
+				},
+				{
+					"type": "paragraph",
+					"content": "Figure <a href=\"#fig-spectra\"></a> provides examples of the Stokes shift in fluorophore absorption and emission spectra. A <span class=\"term\">fluorophore</span>, i.e., a chemical compound that can emit a photon upon photon excitation, typically contains several combined aromatic groups or conjugated double bonds. For fluorophores Cy3B and ATTO647N, two fluorophores which are common in single-molecule fluorescence, conjugated double bonds create a de-localized **@pi** electron system. Conjugation reduces the energy gap <cite>Wade2005</cite> and permits absorption of photons with resonance energies (and hence, wavelengths) in the visible light spectrum; for chemical structures, see Figure <a href=\"#fig-cy3B-and-atto647n\"></a>."
+				},
+				{
+					"type": "figure",
+					"id": "fig-spectra",
+					"class": "one-column",
+					"title": "Absorption and Emission Spectra",
+					"img": [
+						{
+							"url": "img/fluorophoreSpectra.png"
+						}
+					],
+					"desc": "Spectra: why are spectra smooth and continuous? pg 203",
+					"caption": "Absorption and Emission Spectra for Fluorophores Cy3B and ATTO647N. Relative to Cy3B, ATTO647N exhibits a greater Stokes shift. This may be due to ATTO647N's amphiphilicity, i.e., having a hydrophilic head and lipophilic tail, and its exerting London dispersive forces which induce greater reorganization of a more rigid solvation shell; see Figure <a href=\"fig-cy3B-and-atto647n\"></a> and main text. We highlight the significant spectral overlap between Cy3B emission and ATTO647N absorption spectra and further include laser excitation wavelengths (**@lambda_{green} = 532@text{nm}** and **@lambda_{red} = 638@text{nm}**) for reference."
+				},
+				{
+					"type": "figure",
+					"id": "fig-cy3B-and-atto647n",
+					"class": "two-column half",
+					"title": "Chemical Structures: Cy3B and ATTO647N",
+					"img": [
+						{
+							"url": "img/Cy3B.png",
+							"title": "Cy3B",
+							"id": "fig-cy3b"
+						},
+						{
+							"url": "img/ATTO647N.png",
+							"title": "ATTO647N",
+							"id": "fig-atto647n"
+						}
+					],
+					"desc": "Chemical Structures: Cy3B and ATTO647N",
+					"caption": "Chemical Structures for Cy3B <cite>Cooper2004</cite> and ATTO647N <cite>Eggeling2009, Kolmakov2010</cite>."
+				},
+				{
+					"type": "paragraph",
+					"content": "One feature to note in absorption and emission spectra is that the spectra are smooth and continuous. Based on the resonance equation **@Delta E = h@nu**, where **@Delta E** corresponds to the energy gap between electronic ground and excited states, we might expect discrete, or quantized, photon absorption energies matching the resonance condition. Such quantization would be manifest as sharp lines. We should, however, remember that electron motion is coupled to vibrational and rotational motion. The Franck-Condon diagram (Figure <a href=\"#fig-franck-condon-principle\"></a>) shows electronic and vibrational states, but does not show that, for each vibrational state, many rotational, i.e., quantized angular momentum, states are possible.<footnote> The transition between **@vert D @rangle** and **@vert D^* @rangle** does not correspond to a single quantum energy, but instead, a range of energies are available due to an ensemble of possible nuclear configurations. Additionally, the solvation shell surrounding a molecule in solution may occupy one of many supramolecular configurations which are weakly coupled to the molecule. Each coupling will correspond to a slightly different energy gap for absorption or emission. The combination of ro-vibronic coupling and solvation effects means that the number of possible energy gaps trends toward infinity, resulting in a broadened, mostly featureless band with one, or possibly two, maxima.",
+					"footnote": [
+						{
+							"type": "paragraph",
+							"content": "Rotational quantum states have energies of approximately 0.001 eV. These energies are small compared to the thermal energy **k_BT @approx 0.025@ @text{eV}**, where **k_B** is the Boltzmann constant and **T = 296@ @text{K}** is room temperature in degrees Kelvin. Similar to vibrational states, we can describe rotational state occupancy by a Boltzmann distribution <cite>McQuarrie2007</cite>. Consequently, a significant fraction of molecules will occupy rotational states higher than the lowest rotational state."
+						}
+					]
+				}
+			]
+		}
+	]	
+}
