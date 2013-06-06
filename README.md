@@ -35,9 +35,9 @@ With this is mind, this is my attempt at a document grammar.
 ### Specification
 
 
-BookJSON is a format for encoding document data structures. BookJSON supports the following types: chapter, section, paragraph, equation, figure, quote, ordered list, unordered list, and graph. Types are allowed to nest, such that a chapter may contain multiple sections with each sections containing multiple paragraphs and so on and so forth. 
+BookJSON is a format for encoding document data structures. BookJSON supports the following types: chapter, section, paragraph, equation, figure, quote, ordered list, unordered list, and graph. Types are allowed to nest, such that a chapter may contain multiple sections with each section containing multiple paragraphs and so on and so forth. 
 
-In JSON terms, a complete BookJSON data structure is always an object. An object is a collection of key : value pairs. The key is always a string, and values may be either a string, number, object, array, or a literal ('true', 'false', 'null'). 
+In JSON terms, a complete BookJSON data structure is always an object. An object is a collection of key : value pairs. The key is always a string, and values may be either a string, number, object, array, or literal ('true', 'false', 'null'). 
 
 
 #### Examples
@@ -66,11 +66,11 @@ A BookJSON example of a book chapter:
 			"content": [
 				{
 					"type": "paragraph",
-					"content": "This is a paragraph. Here is a sentence with a citation &lt;cite&gt;AuthorYear&lt;/cite&gt;"
+					"content": "This is a paragraph. Here is a sentence with a citation <cite>AuthorYear</cite>"
 				},
 				{
 					"type": "paragraph",
-					"content": "This is another paragraph with a footnote.&gt;footnote&lt;"
+					"content": "This is another paragraph with a footnote.>footnote<"
 					"footnote": [
 						{
 							"content": [
@@ -78,7 +78,7 @@ A BookJSON example of a book chapter:
 									"type": "equation",
 									"id": "equation-1",
 									"content": "@frac{a}{b}",
-									"aside": "An aside explaining this equation with example code: &lt;code&gt;var x = a/b;&lt;/code&gt;." 
+									"aside": "An aside explaining this equation with example code: <code>var x = a/b;</code>." 
 								}
 							]
 						}
@@ -95,13 +95,13 @@ A BookJSON example of a book chapter:
 						}
 					],
 					"desc": "An internal note description about the figure.",
-					"caption": "The figure caption with an endnote.&lt;endnote&gt;",
+					"caption": "The figure caption with an endnote.<endnote>",
 					"endnote": [
 						{
 							"content": [
 								{
 									"type": "paragraph",
-									"content": "Endnote text with additional &lt;span class="term"&gt;markup&lt;/span&gt;."
+									"content": "Endnote text with additional <span class="term">markup</span>."
 								}
 							]
 						}
@@ -109,7 +109,7 @@ A BookJSON example of a book chapter:
 				},
 				{
 					"type": "quote",
-					"content": "This is a &lt;index&gt;quote&lt;/index&gt; with a term added to the index."
+					"content": "This is a <index>quote</index> with a term added to the index."
 				},
 				{
 					"type": "ordered list",
@@ -118,7 +118,7 @@ A BookJSON example of a book chapter:
 							"item": "Item 1."
 						},
 						{
-							"item": "Item 2 which refers to &lt;a href="#figure-1"&gt;Figure 1&lt;/a&gt;"
+							"item": "Item 2 which refers to <a href="#figure-1">Figure 1</a>"
 						},
 						{
 							"item": "Item 3 with inline math: **@int_{-@infty}^{+@infty} e^{xy} dx**."
@@ -137,7 +137,7 @@ A BookJSON example of a book chapter:
 							"url": "path/to/my/image/file.png"
 						}
 					],
-					"caption": "This is a graph/image caption. Notice that the type has an asterisk: in &lt;a href="http://example.com"&gt;LaTeX&lt;, this would refer to an un-numbered graph."
+					"caption": "This is a graph/image caption. Notice that the type has an asterisk: in <a href="http://example.com">LaTeX<, this would refer to an un-numbered graph."
 				}
 			]
 		}
