@@ -1,7 +1,7 @@
 json-book-specification
 ================
 
-The project: create a BookJSON specification. Several specifications have arisen which impose schema atop of JSON. Examples include GeoJSON and TopoJSON for geographic data and BibJSON for bibliographic data. This projects seeks to create a schema for book data.
+The project: create a BookJSON specification. Several specifications have arisen which impose schema atop of JSON. Examples include <a href="http://geojson.org/" target="_blank">GeoJSON</a> and <a href="https://github.com/mbostock/topojson" target="_blank">TopoJSON</a> for geographic data and <a href="http://www.bibjson.org/" target="_blank">BibJSON</a> for bibliographic data. This projects seeks to create a schema for book data.
 
 
 ---
@@ -10,7 +10,7 @@ The project: create a BookJSON specification. Several specifications have arisen
 
 Within academic science, particularly in fields which involve mathematics, <a href="http://www.latex-project.org/" target="_blank">LaTeX</a> is the language of choice for professional publication. LaTeX is a great language for typesetting and provides a powerful platform for creating professional documents. Nevertheless, the future is not static documents. The future is documents which live and breathe, which update and animate, which evolve and interact. 
 
-Several initiatives have created interactive documentation: <a href="http://ipython.org/notebook.html" target="_blank">IPython notebooks</a> for Python, <a href="http://www.wolfram.com/cdf/" target="_blank">Computable Document Format</a> (CDF) for Mathematica, <a href="http://www.stat.uni-muenchen.de/~leisch/Sweave/" target="_blank">Sweave</a> and <a href="http://yihui.name/knitr/" target="_blank">knitr</a> for R, <a href="http://staffwww.dcs.shef.ac.uk/people/N.Lawrence/matweave.html" target="_blank">MATweave</a> for MATLAB/Octave, <a href="http://www.dexy.it" target="_blank">Dexy</a> for multiple language, and Bret Victor's <a href="http://worrydream.com/ExplorableExplanations/" target="_blank">Explorable Explanations</a> for web documents. But alas, the vaunted ivory tower moves at a snail's pace; apart from early adopters (who are few and far between), these tools are not widely used. 
+Several initiatives have created interactive documentation: <a href="http://ipython.org/notebook.html" target="_blank">IPython notebooks</a> for Python, <a href="http://www.wolfram.com/cdf/" target="_blank">Computable Document Format</a> (CDF) for Mathematica, <a href="http://www.stat.uni-muenchen.de/~leisch/Sweave/" target="_blank">Sweave</a> and <a href="http://yihui.name/knitr/" target="_blank">knitr</a> for R, <a href="http://staffwww.dcs.shef.ac.uk/people/N.Lawrence/matweave.html" target="_blank">MATweave</a> for MATLAB/Octave, <a href="http://www.dexy.it" target="_blank">Dexy</a> for multiple languages, and Bret Victor's <a href="http://worrydream.com/ExplorableExplanations/" target="_blank">Explorable Explanations</a> for web documents. But alas, the vaunted ivory tower moves at a snail's pace; apart from early adopters (who are few and far between), these tools are not widely used. 
 
 Unfortunately, I was not one of those early adopters. Only after I wrote my doctoral thesis did I become aware of interactive documents and their utility, not just in academia and computing, but across all fields and industries. Had I fully appreciated the need to go beyond static and lifeless documents several years ago, how I approached research, exploration, and communication would have been vastly different. Hindsight is always 20:20.
 
